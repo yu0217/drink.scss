@@ -1,23 +1,102 @@
+@mixin nav {
+    color: white;
+    display: inline-block;
+    font-size: 0.7em;
+    width: 120px;
+
+    img {
+        width: 30px;
+        float: left;
+        padding-right: 7px;
+    }
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
-
+body {
+    background-color: $color-black;
+    position:relative;
+}
 #nav {
-    background-color: #333;
+    background-color: $color-black;
     display: grid;
     grid-template-columns: 20% 80%;
-    color:gold;
+    color: $color-gold;
     height: 10vh;
     padding: 15px;
-}
+    position:fixed;
+    width: 100vw;
+    z-index:10;
 
-#nav #logo{
+    a{
+        text-decoration: none;
+        @include nav;
+    }
+
+    a:hover span{
+        opacity:0.5;
+    }
+
+    nav{
+        padding-top: 15px;
+    }
+}
+.logo{
     font-size: 1.3em;
     padding: 0 15px;
+    color:$color-gold;
+
+    .logo-zh{
+        font-size:0.6em;
+        letter-spacing:7px;
+        margin-right: -7px;
+    }
+}
+// 標題
+.title{
+    @include nav;
+}
+// 橫幅
+#banner{
+    height: 100vh;
+    width: 100vw;
+    max-width: 100%;
+    background-image: url("https://images.unsplash.com/photo-1504502350688-00f5d59bbdeb?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1050&q=80");
+    background-size: cover;
 }
 
+// 關於我
+#about{
+    height: 90vh;
+    position: relative;
+}
+
+// 熱門經典
+#classical{
+    height: 90vh;
+    position: relative;
+
+    .class-box{
+        text-align:center;
+    }
+}
+
+.bg{
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    filter:blur(2px) brightness(30%);
+    position: absolute;
+    top:0;
+    z-index:-1;
+}
+
+.bg-about{
+    background-image: url(img/about.jpg)
+}
 #nav a{
     text-decoration: none;
     color:white;

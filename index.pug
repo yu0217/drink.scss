@@ -5,6 +5,23 @@ mixin nav-a(img,textzh,texten)
         br
         span=texten
 
+mixin title(img,textzh,texten)
+    div(class="title")
+        img(src="img/"+ img +".png" alt="連結 縮圖")
+        span=textzh
+        br
+        span=texten
+
+mixin loaction-box(namezh,nameeg,img)
+    div(class="loaction-box")
+        div(class="location-text")
+            span=namezh
+            br
+            span=nameeg
+        img(src="img/location.png", alt="據點")
+    img(src="img/"+img+".png", alt="據點")
+    
+
 <!DOCTYPE html>
 html(lang="zh")
     head
@@ -12,6 +29,7 @@ html(lang="zh")
         meta(name="viewport", content="width=device-width, initial-scale=1.0")
         title 獅子堂黑糖專賣 | 首頁 | 黑糖專賣
         link(rel="stylesheet",href="style.css")
+        link(rel="stylesheet", href="https://unpkg.com/aos@next/dist/aos.css")
     body
         header(id="nav")
             div(id="logo") LION SUGAR
@@ -25,3 +43,36 @@ html(lang="zh")
                 +nav-a("contact","加盟專區","FRANCHISEE")
 
         section(id="banner")
+
+        section(id="about")
+            div(class="bg bg-about")
+            div(class="container")
+                +title("home","關於我們","ABOUT")
+        
+        section(id="location")
+            div(class="bg bg-location")
+            div(class="container")
+                +title("location","全球據點","LOCATIONS")
+
+                div(id="location-container")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+                    +loaction-box("台灣", "Taiwan", "location_taipei")
+        
+        div(class="container")
+            +title("hot", "熱門經典", "CLASSICAL")
+
+        div(class="container")
+            +title("contact", "加盟專區", "FRANCHISEE")
+        
+        script(src="https://unpkg.com/aos@next/dist/aos.js")
+        script AOS. init():
